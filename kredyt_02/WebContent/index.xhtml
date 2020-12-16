@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Kredyt</title>
+</h:head>
+<h:body>
+
+	 <p:panel id="basic" header="Kredyt"  toggleable="true" closable="true" toggleSpeed="500" style="margin:1em auto" >
+
+	<h:form id="bla">
+	<h:panelGrid columns="3" cellpadding="5">
+	
+		<p:outputLabel for="kwota" value="Kwota:" />
+  		<p:inputNumber symbol=" zł" symbolPosition="s"  id="kwota" value="#{kredyt2BB.kwota}" required="true" requiredMessage="Brak kwoty"/>
+  		<p:message for="kwota" />
+	
+		<p:outputLabel for="lat" value="Na ile lat?" />
+  		<p:inputText id="lat" value="#{kredyt2BB.lat}" required="true" requiredMessage="Brak okresu"/>
+  		<p:message for="lat" />
+	
+		<p:outputLabel for="procent" value="Na ile procent?" />
+		<p:inputNumber id="procent" value="#{kredyt2BB.procent}" symbol=" %" symbolPosition="s"   required="true" requiredMessage="Brak oprocentowania"/>
+		<p:message for="procent" />
+		
+		
+		<p:commandButton value="Oblicz ratę" action="#{kredyt2BB.calc()}" update="@form"/>
+		<p:commandButton value="Oblicz ratę (AJAX)" action="#{kredyt2BB.calc_AJAX()}" update="@form"/>
+		
+		</h:panelGrid>
+		
+		<p:messages id="msg" />
+	</h:form>
+	</p:panel>
+
+</h:body>
+</html>
