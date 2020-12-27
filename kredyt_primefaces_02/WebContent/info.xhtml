@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main-template.xhtml">
+
+	<ui:define name="title">
+		 Informacje o kredycie
+	</ui:define>
+
+	<ui:define name="content">
+		<p:panel styleClass="bottom-space">
+	
+	<div id="grfika"><h:graphicImage name="img/ico.ico" library="template" /></div>
+			
+		<div id="text">	<b>Czym jest kredyt bankowy?</b>
+Kredyt bankowy to nic innego jak pisemna umowa zawarta między konsumentem a bankiem. Bank na jej podstawie zobowiązuje się do udostępnienia określonej kwoty pieniężnej na określony czas. Natomiast kredytobiorca jest zobowiązany do wykorzystania otrzymanych środków zgodnie z ich przeznaczeniem, określonym warunkami umowy, oraz do ich zwrotu wraz z należnym bankowi wynagrodzeniem w postaci prowizji oraz odsetek.
+			</div>
+		
+			<h:form>
+				<h:commandLink value="Strona główna" action="index" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
+</html>

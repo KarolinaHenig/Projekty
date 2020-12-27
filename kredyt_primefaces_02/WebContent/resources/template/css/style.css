@@ -1,0 +1,42 @@
+body{
+	font-family: 'Century Gothic',helvetica,verdana,arial;
+	background: url("../img/tlo.png.jsf?ln=template") no-repeat center center fixed;
+	background-size: cover;
+	margin:0;
+	
+	
+}
+
+.bottom-space{
+	margin-bottom: 1em;
+}
+
+
+
+#page_wrapper{
+	margin: 1em;
+	
+
+}
+#header
+{
+	text-align:center;
+
+}
+#footer{
+		
+		text-align:center;
+		
+}
+
+#grafika {
+	float:center;
+	text-align:center;
+
+}
+#text {
+	float:center;
+	width:70%;
+	height:10em;
+	
+}
