@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<ui:composition template="/templates/page-template.xhtml">
+
+	<ui:define name="pageContent">
+
+		<p:panel header="Opcje wyszukiwania" toggleable="true" collapsed="true">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel value="Miejscowość:" />
+				<p:inputText value="#{personListBB.surname}" />
+				
+				<h:outputLabel value="Województwo:" />
+				<p:inputText value="#{personListBB.surname}" />
+				<p:commandButton value="Szukaj" update="form-table" />
+			</h:panelGrid>
+	
+		</h:form>
+	</p:panel>
+
+	<p:messages />
+
+	<h:form id="form-table" style="margin-bottom:1em;">
+
+		<p:commandButton value="Dodaj warsztat" action="#{listAddressBB.newAddress()}" />
+		
+		<p:dataTable value="#{personListBB.list}" var="p">
+
+			<p:column priority="5">
+				<f:facet name="header">
+					<h:outputText value="Nazwa" />
+				</f:facet>
+				<h:outputText value="#{p.nazwa_warsztatu}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Adres" />
+				</f:facet>
+				<h:outputText value="#{p.miejscowość}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Numer telefonu" />
+				</f:facet>
+				<h:outputText value="#{p.numer_telefonu}" />
+			</p:column>
+
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Opinie" />
+				</f:facet>
+
+				<p:commandButton value="Czytaj opinie"
+					action="#{personListBB.editPerson(p)}" />
+
+				<p:commandButton value="Dodaj opinie"
+					action="#{personListBB.deletePerson(p)}"  />
+
+				
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

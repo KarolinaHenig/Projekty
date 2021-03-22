@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+
+<f:metadata>
+    <f:viewAction action="#{addAddressBB.onLoad()}" />
+</f:metadata>
+
+<ui:composition template="/templates/page-template.xhtml">
+
+	<ui:define name="pageContent">
+
+		<p:panel header="Dodaj warsztat" id="log">
+
+			<p:messages id="msg" />
+
+			<h:form id="bla">
+				<h:panelGrid columns="3" cellpadding="5">
+
+					<p:outputLabel for="nazwa" value="Nazwa:" />
+					<p:inputText id="nazwa"
+						value="#{addAddressBB.warsztat.nazwaWarsztatu}" required="true"
+						requiredMessage="Brak nazwy"
+						converterMessage="Podaj nazwę warsztatu">
+
+					</p:inputText>
+
+					<p:message for="nazwa" style="height:4em" />
+
+					<p:outputLabel for="nip" value="NIP:" />
+					<p:inputMask id="nip" mask="9999999999" validateMask="true"
+						value="#{addAddressBB.warsztat.nip}"
+						required="true" requiredMessage="Brak numeru NIP"
+						converterMessage="Podaj NIP" validatorMessage="Błędny NIP">
+
+					</p:inputMask>
+
+					<p:message for="nip" style="height:4em" />
+
+
+					<p:outputLabel for="numer_telefonu" value="Numer telefonu:" />
+					
+					<p:inputMask id="numer_telefonu" mask="999999999" validateMask="true"
+						value="#{addAddressBB.warsztat.numerTelefonu}" required="true"
+						requiredMessage="Brak numeru telefonu"
+						converterMessage="Podaj numer telefonu"
+						validatorMessage="Błędny numer telefonu">
+
+					</p:inputMask>
+
+					<p:message for="numer_telefonu" style="height:4em" />
+
+
+
+					<p:outputLabel for="miejscowość" value="Miejscowość:" />
+					<p:inputText id="miejscowość"
+						value="#{addAddressBB.warsztat.miejscowość}" required="true"
+						requiredMessage="Brak miejscowości"
+						converterMessage="Podaj miejscowość"
+						validatorMessage="Błędna nazwa miejscowości">
+
+					</p:inputText>
+
+					<p:message for="miejscowość" style="height:4em" />
+
+
+
+
+					<p:outputLabel for="województwo" value="Województwo:" />
+					<p:inputText id="województwo"
+						value="#{addAddressBB.warsztat.wojewodztwo}" required="true"
+						requiredMessage="Brak województwa"
+						converterMessage="Podaj województwo"
+						validatorMessage="Błędna nazwa województwa">
+
+					</p:inputText>
+
+					<p:message for="województwo" style="height:4em" />
+
+
+
+
+					<p:outputLabel for="kod_pocztowy" value="Kod pocztowy:" />
+					<p:inputMask id="kod_pocztowy"
+						value="#{addAddressBB.warsztat.kodPocztowy}" mask="99-999" validateMask="true"
+						required="true"
+						requiredMessage="Brak kodu pocztowego"
+						converterMessage="Podaj kod pocztowy"
+						validatorMessage="Błędny kod pocztowy">
+
+					</p:inputMask>
+
+					<p:message for="kod_pocztowy" style="height:4em" />
+
+
+					<p:outputLabel for="ulica" value="Ulica:" />
+					<p:inputText id="ulica" value="#{addAddressBB.warsztat.ulica}"
+						required="true" requiredMessage="Brak ulicy"
+						converterMessage="Podaj ulicę" validatorMessage="Błęda nulica">
+
+					</p:inputText>
+
+					<p:message for="ulica" style="height:4em" />
+
+
+
+					<p:outputLabel for="numer_domu" value="Numer domu:" />
+					<p:inputText id="numer_domu"
+						value="#{addAddressBB.warsztat.numerDomu}" required="true"
+						requiredMessage="Brak numeru domu"
+						converterMessage="Podaj numer domu"
+						validatorMessage="Błędny numer domu">
+
+					</p:inputText>
+					<p:message for="numer_domu" style="height:4em" />
+
+					<p:outputLabel value=" " />
+
+
+					<p:commandButton  value="Dodaj warsztat"
+						action="#{addAddressBB.saveData()}" style="margin-right: 1em;"
+						update="@form" />
+
+					<p:button value="Anuluj" outcome="listAddress" />
+
+				</h:panelGrid>
+
+
+			</h:form>
+
+		</p:panel>
+
+	</ui:define>
+
+</ui:composition>
+</html>
